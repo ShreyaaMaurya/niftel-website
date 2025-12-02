@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Niftel | Performance Speaks</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <link href="assets/img/N.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../vendors/aos/aos.css" rel="stylesheet">
+  <link href="../vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+  .hero-section {
+  width: 100%;
+  height: 90vh; /* adjust height */
+  background: url('assets/img/csr.jpeg') center center/cover no-repeat;
+  position: relative;
+  color: #fff;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-top: 10px;
+}
+/* card */
+
+.image-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  height: 100%;                 /* makes all cards equal height */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  border-color: #b3d4ff;
+}
+
+.image-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.08);
+}
+
+/* Make images show fully — NOT over-cropped */
+.image-card .card-img {
+  width: 100%;
+  height: 260px;               /* slightly increased (wider look) */
+  object-fit: contain;         /* very important — no cropping */
+  padding: 10px;               /* spacing so it looks premium */
+  background: #f9fafb;         /* light bg for better contrast */
+  transition: 0.4s ease;
+}
+
+/* Wider card look */
+.col-lg-4 {
+  flex: 0 0 32%;               /* increases width of cards */
+  max-width: 32%;
+}
+
+.card-content {
+  padding: 22px;
+  flex: 1;                      /* makes text section fill equal height */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-card h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.image-card p {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-top: auto;             /* pushes text evenly */
+}
+
+/* Smooth fade-in animation */
+.image-card[data-aos] {
+  will-change: transform, opacity;
+}
+
+.features-content {
+  padding-left: 40px !important;
+}
+
+/* Responsive — fallback for mobile */
+@media (max-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* CLIENT LOGO STYLING */
+/* .client-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+
+} */
+
+.client-logo {
+  width: 120px;      /* adjust as needed */
+  height: 120px;      /* adjust as needed */
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+
+.swiper-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 170px !important;     /* Fix width for perfect alignment */
+}
+
+/* Remove space after last slide */
+.myClientsSwiper .swiper-wrapper {
+  margin-right: 0 !important;
+}
+
+/* Hover effect */
+.client-logo:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.12));
+}
+
+/* Center the slider */
+#clients {
+  padding: 40px 0;
+}
+
+/* iso */
+
+.footer-iso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #494848;
+  margin-top: 20px;
+}
+
+.footer-iso .iso-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.team-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: 0.35s ease;
+  height: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+/* Medium image size */
+.team-card .image-wrapper {
+  width: 100%;
+  height: 260px; /* <- Balanced size */
+  overflow: hidden;
+}
+
+.team-card .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.team-card:hover .image-wrapper img {
+  transform: scale(1.05);
+}
+
+.team-card h4 {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.team-card .position {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+.team-card p {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 0 15px 20px 15px;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body class="index-page">
+       <!-- Header Loads Here -->
+  <div id="header"></div>
+
+  <main class="main">
+    <section id="hero" class="hero section dark-background">
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8 text-center">
+              <h2>Quality BPO, Data Digital Marketing for businesses.</h2>
+              <p>Looking to leave competitors behind and keep improving your sales? Niftel is right here to help grow your business revenue with our top-of-the-line lead generation services.</p>
+       
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-item active">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/img/slider/carousal1.jpg">
+      <source src="assets/img/slider/carousal1.mp4" type="video/mp4">
+
+    </video>
+  </div>
+</div>
+ </section>
+    
+<!-- about section -->
+
+    <section id="about" class="about section light-background">
+      <div class="container section-title">
+        <h2>About</h2>
+        <p>IMPROVE YOUR PRODUCTIVITY</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 position-relative">
+            <div class="about-img" data-aos="fade-right">
+              <img src="assets/img/about/about-portrait-2.webp" class="img-fluid" alt="">
+            </div>
+            <div class="experience-badge" data-aos="fade-up">
+              <h2>15</h2> 
+              <p>Years of<br>Experience</p>
+            </div>
+            <div class="projects-badge" data-aos="fade-left">
+              <h2>500+</h2>
+              <p>Projects</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left">
+            <h2 class="display-4 fw-bold mb-4">Better & productive leads to increase sales figures.</h2>
+            <p class="lead mb-4">Get the best leads through our business process outsourcing (BPO), data management and digital marketing services and propel your business to new heights online & offline.</p>
+
+            <div class="features">
+              <div class="feature-item mb-4" data-aos="fade-up">
+                <div class="feature-icon">
+                  <i class="bi bi-rocket-takeoff"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Highly Trained Team</h4>
+                  <p>Get a team that understands best industry practices and procedures.</p>
+                </div>
+              </div>
+
+              <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Better Local Engagement</h4>
+                  <p>Get engagement with your business audience in the local tone and language.</p>
+                </div>
+              </div>
+
+                 <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Affordable Solutions</h4>
+                  <p>Get cost-effective affordable pricing that makes financial sense.</p>
+                </div>
+              </div>
+
+              
+                 <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Results First Approach</h4>
+                  <p>We believe in numbers and results that showcase our promises.</p>
+                </div>
+              </div>
+
+              
+                 <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Honesty & Transparency</h4>
+                  <p>We offer honest effort that builds stronger businesses.</p>
+                </div>
+              </div>
+
+              
+                 <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Quality Infrastructure</h4>
+                  <p>Get state-of-the-art infrastructure with near zero systems breakdown.</p>
+                </div>
+              </div>
+
+
+              <a href="#" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="300">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    
+    <section id="services" class="services section">
+      <div class="container section-title ">
+        <h2>SERVICES</h2>
+        <p>Better BPO services for non-core business needs.</p>
+      </div>
+      
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="services-content" data-aos="fade-left" data-aos-duration="900">
+              <span class="subtitle"><b>Professional Services</b></span>
+              <h2><b>Better BPO services for non-core business needs</b></h2>
+              <p data-aos="fade-right" data-aos-duration="800">Optimize your fiscal operations and ensure regulatory compliance with our specialized BPO and Finance & Accounting services. We eliminate manual errors, streamline processes, and provide the data accuracy you need to drive profitability and make informed strategic decisions.</p>
+          <a href="./services page/services.html" 
+             style="display:inline-block; margin-top:20px; padding:10px 22px; background:#ff7f50; 
+             color:#fff; border-radius:6px; text-decoration:none; font-weight:600; transition:0.3s;">
+             Learn More →
+          </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="services-image" data-aos="fade-left" data-aos-delay="200">
+              <img src="assets/img/services/services-9.webp" alt="Business Services" class="img-fluid">
+              <div class="shape-circle"></div>
+              <div class="shape-accent"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5" data-aos="fade-up" data-aos-duration="1000">
+          <div class="col-12">
+            <div class="services-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20,
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-nav-next",
+                    "prevEl": ".swiper-nav-prev"
+                  },
+                  "breakpoints": {
+                    "320": {
+                      "slidesPerView": 1
+                    },
+                    "768": {
+                      "slidesPerView": 2
+                    },
+                    "992": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-headset"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Professional Call Center Support</a></h4>
+          <p>Access trained, friendly, and professional support teams to handle all your customer interactions, ensuring high satisfaction and brand loyalty.</p>
+          <div class="service-number">01</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-shop"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">E-commerce & HR Support Services</a></h4>
+          <p>Streamline your online retail operations and human resource functions with specialized outsourcing, covering everything from logistics to talent management.</p>
+          <div class="service-number">02</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-gear"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Front & Back Office Support</a></h4>
+          <p>Achieve operational efficiency by outsourcing essential non-core tasks, allowing your in-house team to focus on core business growth and strategic priorities.</p>
+          <div class="service-number">03</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Invoice Factoring & Underwriting</a></h4>
+          <p>Get comprehensive support including invoice factoring, expert underwriting, and meticulous accounts management to secure a healthy financial balance sheet.</p>
+          <div class="service-number">04</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-database-fill"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Outsourced Data Management</a></h4>
+          <p>Outsource your data management to our experts to increase business efficiency, ensure security, and provide superior supervision over your critical assets.</p>
+          <div class="service-number">05</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card"> 
+        <div class="icon-box">
+          <i class="bi bi-clipboard-data"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">High-Speed Data Processing</a></h4>
+          <p>Save valuable time and resources with our fast, accurate data processing services, converting raw information into structured, usable formats for analysis.</p>
+          <div class="service-number">06</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-magic"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Data Cleansing & Retention</a></h4>
+          <p>Retain and save quality data through thorough cleansing and validation, ensuring the integrity and reliability of all information used for reporting and strategy.</p>
+          <div class="service-number">07</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-search"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Data Verification & Extraction</a></h4>
+          <p>Leverage verified and extracted data to inform critical business decisions and provide your leadership with a trustworthy foundation for strategic planning.</p>
+          <div class="service-number">08</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-file-earmark-diff"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Data Conversion Services</a></h4>
+          <p>Ensure easy storage and retrieval of your information by converting complex data into modern, universally accessible, and secure digital formats.</p>
+          <div class="service-number">09</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-globe"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Affordable Website Development</a></h4>
+          <p>Get attractive, high-performance business websites developed at affordable rates, built for optimal user experience, accessibility, and conversion.</p>
+          <div class="service-number">10</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-graph-up"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Search Engine Optimization (SEO)</a></h4>
+          <p>Outrank your competition with our strategic SEO services designed to increase organic traffic and ensure your business website ranks highly on all search engines.</p>
+          <div class="service-number">11</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-envelope-open"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Email & Content Marketing</a></h4>
+          <p>Engage and nurture your audience with powerful email and content marketing campaigns that build relationships, establish authority, and drive consistent action.</p>
+          <div class="service-number">12</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="bi bi-share"></i>
+        </div>
+        <a href="service-details.html" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+        <div class="content">
+          <h4><a href="service-details.html">Organic & Paid Social Media</a></h4>
+          <p>Achieve the best digital results through expertly managed organic campaigns and targeted paid social media advertising across all major platforms.</p>
+          <div class="service-number">13</div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper-navigation">
+              <button class="swiper-nav-prev"><i class="bi bi-chevron-left"></i></button>
+              <button class="swiper-nav-next"><i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+ 
+    </section>
+    <!-- Features Section -->
+   <section id="features" class="features section">
+  <div class="card-container" data-aos="fade-up" data-aos-delay="100">
+    
+    <div class="row align-items-center">
+
+      <!-- Left Text Section -->
+      <div class="col-lg-5 mb-4 ml-2" data-aos="fade-right" data-aos-delay="200">
+        <div class="features-content ">
+          <h2>Build a profitable business balance sheet with our expertise & experience.</h2>
+        </div>
+      </div>
+
+      <!-- Right Image Cards Section -->
+      <div class="col-lg-7">
+        <div class="row g-4">
+
+          <!-- Card 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="image-card" data-aos="zoom-in" data-aos-delay="300">
+              <img src="assets/img/target-audience.png" alt="Feature Image 1" class="img-fluid card-img">
+              <div class="card-content">
+                <h5>Target Audience</h5>
+                <p>Convert your target audience and close the deal.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="image-card" data-aos="zoom-in" data-aos-delay="350">
+              <img src="assets/img/visibility.png" alt="Feature Image 2" class="img-fluid card-img">
+              <div class="card-content">
+                <h5>Visibility & Credibility</h5>
+                <p>Drive interest and traffic from high-quality prospects.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="image-card" data-aos="zoom-in" data-aos-delay="400">
+              <img src="assets/img/revenue.webp" alt="Feature Image 3" class="img-fluid card-img">
+              <div class="card-content">
+                <h5>Revenue & Business</h5>
+                <p>Increase the lifetime value of your paying customer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section id="clients" class="clients section light-background ml-90">
+  <div class="container">
+
+    <div class="swiper myClientsSwiper">
+      <div class="swiper-wrapper align-items-center justify-content-center">
+
+        <div class="swiper-slide">
+          <img src="assets/img/clients/swiggy-logo-png_seeklogo-348257-removebg-preview.png" alt="" class="client-logo">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/img/clients/Zomato-logo.png" alt="" class="client-logo">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/img/clients/blinkit-removebg-preview.png" alt="" class="client-logo">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/img/clients/Amazon.png" alt="" class="client-logo">
+        </div>
+
+        <div class="swiper-slide ">
+          <img src="assets/img/clients/sm-6713c66ee8296-IndiaMart.webp" alt="IndiaMart" class="client-logo">
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Team Section -->
+
+
+<section class="py-5 ">
+  <div class="container section-title mb-5" data-aos="fade-up" data-aos-duration="800">
+    <h2>Our Founders</h2>
+    <p>Meet the visionaries who built the foundation of our excellence.</p>
+  </div>
+
+  <div class="container">
+        <div class="row g-4 justify-content-center">
+             
+      <!-- Founder Card Example -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+        <div class="team-card">
+          <img src="assets/img/team/farukh-shah founder.png" alt="Founder 1">
+          <div class="team-info p-3 text-center">
+            <h3>Farukh Shah</h3>
+            <p>Founder</p>
+            <div class="orange-line"></div>
+            <!-- <div class="social-icons">
+              <a href="https://www.linkedin.com/in/farukh-shah-1a34596/"><i class="bi bi-linkedin"></i></a>
+              <a href="https://x.com/shah_farukh"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/fshahniftel/"><i class="bi bi-facebook"></i></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+        <div class="team-card">
+          <img src="assets/img/team/nida-parveen co-founder.jpg" alt="Founder 2">
+          <div class="team-info p-3 text-center">
+            <h3>Nida Parveen</h3>
+            <p>Co-Founder</p>
+            <div class="orange-line"></div>
+            <!-- <div class="social-icons">
+              <a href="https://www.linkedin.com/in/nida-parveen-39932b278/"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    <!-- </div>
+
+     
+            <div class="container"> -->
+        <!-- <div class="row g-4 justify-content-center mt-4">
+              -->
+         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+        <div class="team-card">
+          <img src="assets/img/team/kamran_anwar_shah director.jpg" alt="Founder 1">
+          <div class="team-info p-3 text-center">
+            <h3>Kamran Anwar Shah</h3>
+            <p>Director</p>
+            <div class="orange-line"></div>
+            <!-- <div class="social-icons">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
+
+         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+        <div class="team-card">
+          <img src="assets/img/team/dr-sameer-anwar-shah ceo.jpeg" alt="Founder 1">
+          <div class="team-info p-3 text-center">
+            <h3>Dr Sameer Anwar Shah</h3>
+            <p>CEO</p>
+            <div class="orange-line"></div>
+            <!-- <div class="social-icons">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat for other cards, just increment data-aos-delay by 100 for each -->
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Contact section -->
+
+    <section id="contact" class="contact section light-background">
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <p>We are here to answer any question you may have</p>
+      </div><div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-main-wrapper">
+          <div class="map-wrapper">
+           <!-- If Google Maps is blocked (API/referrer/CSP) the iframe will show an error.
+                Use OpenStreetMap embed as a reliable fallback that requires no API key. -->
+           <!-- Original Google Maps iframe (kept commented for reference)
+           <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d56949.108103012244!2d80.9807396!3d26.8615961!3m2!1i1024!2i768!4f13.1!2m1!1sniftel!5e0!3m2!1sen!2sin!4v1764260015583!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           -->
+           <!-- Interactive Leaflet map (OpenStreetMap tiles). No API key required. -->
+           <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+           <div id="map-index" style="width:100%;height:100%;border-radius:12px;overflow:hidden;"></div>
+           <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+           <script>
+             (function(){
+               try {
+                 const lat = 26.8615961, lon = 80.9807396;
+                 const map = L.map('map-index', { zoomControl: true }).setView([lat, lon], 13);
+                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                   maxZoom: 19,
+                   attribution: '&copy; OpenStreetMap contributors'
+                 }).addTo(map);
+                 L.marker([lat, lon]).addTo(map).bindPopup('Niftel — Lucknow').openPopup();
+               } catch (err) {
+                 console.warn('Leaflet init failed', err);
+               }
+             })();
+           </script>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-cards-container" data-aos="fade-up" data-aos-delay="300">
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Location</h4>
+                  <p>A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p><a href="mailto:hr@niftel.com">hr@niftel.com</a></p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Call</h4>
+                 <p><a href="tel:+91-9236 454 872">+91-9236 454 872</a></p>
+
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Open Hours</h4>
+                  <p>Monday-Friday: 12PM - 9PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container" data-aos="fade-up" data-aos-delay="400">
+              <h3>Drop us a line</h3>
+              <p>We understand the value of your personal information. It will always remain safe with us.</p>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit">Send Message</button>
+                     <div class="social-links">
+              <a href="https://www.facebook.com/niftelcommunications/"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/NiftelComPvtLtd/with_replies"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.youtube.com/@niftelcommunications"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.instagram.com/niftelcommunications/?hl=en"><i class="bi bi-instagram"></i></a>
+            </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer Loads Here -->
+  <div id="footer"></div>
+
+  <!-- Import include.js -->
+  <script src="./assets/js/include.js"></script>
+  <script src="./assets/js/main.js"></script>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+  <div id="preloader"></div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendors/php-email-form/validate.js"></script>
+  <script src="../vendors/aos/aos.js"></script>
+  <script src="../vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="../vendors/purecounter/purecounter_vanilla.js"></script>
+  <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../vendors/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../vendors/glightbox/js/glightbox.min.js"></script>
+
+  <script src="assets/js/include.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/swiper.js"></script>
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/aos.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script>
+    window.addEventListener("scroll", function () {
+    const body = document.body;
+
+    if (window.scrollY > 50) {
+      body.classList.add("scrolled");
+    } else {
+      body.classList.remove("scrolled");
+    }
+  });
+    loadComponent('header', '/base/header.html');
+    loadComponent('footer', '/base/footer.html');
+
+    // Ensure nav is initialized after header loads
+    setTimeout(function() {
+      var mobileToggle = document.querySelector('.mobile-nav-toggle');
+      if (mobileToggle && !mobileToggle._initDone) {
+        var initNav = function() {
+          const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+          if (mobileNavToggleBtn && !mobileNavToggleBtn._initDone) {
+            function mobileNavToggle() {
+              document.querySelector('body').classList.toggle('mobile-nav-active');
+              if (mobileNavToggleBtn) {
+                mobileNavToggleBtn.classList.toggle('bi-list');
+                mobileNavToggleBtn.classList.toggle('bi-x');
+              }
+            }
+            mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
+            mobileNavToggleBtn._initDone = true;
+          }
+        };
+        initNav();
+      }
+    }, 100);
+  </script>
+  <script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"68c5ca450bae485a842ff76066d69420","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>
+  new Swiper(".myClientsSwiper", {
+    loop: true,
+    speed: 600,
+    autoplay: { delay: 3000 },
+    slidesPerView: 5,
+    spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      320: { slidesPerView: 2, spaceBetween: 20 },
+      480: { slidesPerView: 3, spaceBetween: 20 },
+      767: { slidesPerView: 4, spaceBetween: 20 },
+      992: { slidesPerView: 5, spaceBetween: 20 }
+    }
+  });
+
+  
+</script>
+
+</body>
+
+</html>

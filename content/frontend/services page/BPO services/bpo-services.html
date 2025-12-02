@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Niftel | Performance Speaks</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="robots" content="index, follow">
+
+  <link href="assets/img/N.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="/content/frontend/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/content/frontend/vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/content/frontend/vendors/aos/aos.css" rel="stylesheet">
+  <link href="/content/frontend/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/content/frontend/vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <link href="/content/frontend/assets/css/main.css" rel="stylesheet">
+  <link href="/content/frontend/assets/css/style.css" rel="stylesheet">
+  
+</head>
+
+<body class="career-page">
+
+  <!-- Header Loads Here -->
+  <div id="header"></div>
+
+  
+
+        
+  <main class="main">
+    <section id="hero" class="hero section dark-background">
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8 text-center">
+              <h2>Quality BPO, Data Digital Marketing for businesses.</h2>
+              <p>Looking to leave competitors behind and keep improving your sales? Niftel is right here to help grow your business revenue with our top-of-the-line lead generation services.</p>
+              <a href="#featured-services" class="btn-get-started">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-item active">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/img/slider/carousal1.jpg">
+      <source src="/content/frontend/assets/img/services/backoffice-services.mp4" type="video/mp4">
+
+    </video>
+  </div>
+</div>
+ </section>
+    </main>
+
+
+  <!-- Footer Loads Here -->
+  <div id="footer"></div>
+
+  <!-- Import include.js -->
+  <script src="/content/frontend/assets/js/include.js"></script>
+  <script src="/content/frontend/assets/js/main.j"></script>
+
+  <!-- Load Header & Footer -->
+<script>
+    window.addEventListener("scroll", function () {
+    const body = document.body;
+
+    if (window.scrollY > 50) {
+      body.classList.add("scrolled");
+    } else {
+      body.classList.remove("scrolled");
+    }
+  });
+    loadComponent('header', '/base/header.html');
+    loadComponent('footer', '/base/footer.html');
+  </script>
+</body>
+</html>

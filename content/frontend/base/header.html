@@ -1,0 +1,89 @@
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container position-relative d-flex align-items-center justify-content-between">
+    <a href="/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <img src="/assets/img/logo1.png" alt="">
+    </a>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="/index.html" class="active">Home</a></li>
+        
+        <li class="dropdown">
+          <a href="/services page/services.html"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li class="dropdown">
+              <a href="/services page/BPO services/bpo-services.html"><span>BPO Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="/services page/BPO services/backoffice.html">Back Office</a></li>
+                <li><a href="/services page/BPO services/frontoffice.html">Front Office</a></li>
+                <li><a href="/services page/BPO services/invoicemanagement.html">Invoice Management</a></li>
+                <li><a href="/services page/BPO services/finance&accounting.html">Finance & Accounting</a></li>
+                <li><a href="/services page/BPO services/ecommerce.html">E-commerce Support</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="/services page/Data services/data-services.html"><span>Data Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="/services page/Data services/leadConversion.html">Lead Conversion</a></li>
+                <li><a href="/services page/Data services/dataValidation.html">Data Validation</a></li>
+                <li><a href="/services page/Data services/dataMigration.html">Data Migration</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="/services page/Tech Support/call-center.html"><span>Call Center Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="/services page/Tech Support/inbound-call.html">Inbound Call Support</a></li>
+                <li><a href="/services page/Tech Support/outbound.html">Outbound Call Support</a></li>
+                <li><a href="/services page/Tech Support/answering-services.html">Answering Services</a></li>
+                <li><a href="/services page/Tech Support/tech-support.html">Tech Support</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/teams.html">Our Team</a></li>
+        <li class="dropdown">
+          <a href="https://www.niftelresources.com/"><span>Resources</span> </a>
+            <!-- <ul>
+            <li class="dropdown">
+              <a href="https://www.niftelresources.com/about-us/"><span>About Us</span> </a>
+            </li>
+            <li class="dropdown">
+              <a href="../resources/CSR.html"><span>CSR</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="../resources/gallery.html"><span>Gallery</span></a>
+            </li>
+          </ul>
+        </li> -->
+        <li><a href="https://www.niftelresources.com/apply-for-job">Careers</a></li>
+        <li><a href="/content/frontend/contactUs.html">Contact Us</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+    <a class="cta-btn" href="/index.html#about">Get Started</a>
+  </div>
+</header>
+
+  <script>
+    (function() {
+      try {
+        // Only add index-page on the actual homepage so shared pages keep their own styles
+        var p = window.location.pathname.replace(/\\/g, '/');
+        if (p === '/' || p.endsWith('/index.html')) {
+          document.body.classList.add('index-page');
+          window.dispatchEvent(new Event('scroll'));
+          window.dispatchEvent(new Event('load'));
+        }
+      } catch (e) {
+        console.error('Error setting up header:', e);
+      }
+    })();
+
+    </script>
+<script src="/vendors/aos/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+
+</script>

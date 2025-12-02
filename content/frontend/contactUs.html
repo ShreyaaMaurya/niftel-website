@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Niftel | Performance Speaks</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="robots" content="index, follow">
+
+  <link href="assets/img/N.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../vendors/aos/aos.css" rel="stylesheet">
+  <link href="../vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <link href="./assets/css/main.css" rel="stylesheet">
+    <style>
+        :root {
+            --orange: rgb(255, 111, 0);
+            --white: #ffffff;
+            --light: #f5f5f5;
+            --text: #222;
+            --muted: #666;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        /* Slide Animations */
+        .slide-left, .slide-right, .slide-up {
+            opacity: 0;
+            transition: 0.8s ease;
+        }
+        .slide-left { transform: translateX(-40px); }
+        .slide-right { transform: translateX(40px); }
+        .slide-up { transform: translateY(40px); }
+        .show { opacity: 1 !important; transform: translateX(0) translateY(0) !important; }
+
+        /* Layout */
+        .wrapper {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--black);
+            margin-bottom: 30px;
+            font-size: 34px;
+            font-weight: 600;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        /* Card */
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Contact Info */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .info-item i {
+            color: var(--orange);
+            margin-right: 10px;
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            font-size: 26px;
+            margin-right: 10px;
+            color: var(--orange);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { color: #ff4500; }
+
+        /* Form */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            background: var(--orange);
+            color: var(--white);
+            border: none;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form button:hover { background: #e25800; }
+
+        /* Map */
+        /* iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 12px;
+        } */
+
+        .info-item i {
+    font-size: 22px;
+}
+
+.social-icons i {
+    font-size: 28px;
+}
+</style>
+</head>
+
+<body class="career-page ">
+
+  <div id="header"></div>
+
+    <main class="main">
+    <section id="hero" class="hero section dark-background">
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8 text-center">
+              <h1>Contact Us</h1>
+              <p>Looking to leave competitors behind and keep improving your sales? Niftel is right here to help grow your business revenue with our top-of-the-line lead generation services.</p>
+       
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-item active">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/img/slider/carousal1.jpg">
+      <source src="assets/img/contactUs.mp4" type="video/mp4">
+
+    </video>
+  </div>
+</div>
+ </section>
+    
+<section id="contact" class="contact section light-background">
+<div class="wrapper">
+    <h2>Contact Us</h2>
+
+    <div class="row">
+
+ 
+        <div class="card slide-left">
+            <h3 style="color: var(--orange);">Contact Information</h3>
+
+            <div class="info-item">
+                <i class="bi bi-telephone-fill"></i>
+                 <p><a href="tel:+91-9236 454 872">+91-9236 454 872</a></p>
+
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-envelope-fill"></i>
+                <p><a href="mailto:hr@niftel.com">hr@niftel.com</a></p>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <p>Lucknow, Uttar Pradesh, India</p>
+            </div>
+
+            <h3 style="color: var(--orange); margin-top: 25px;">Follow Us</h3>
+                  <div class="social-icons" style="color: var(--text);">
+              <a href="https://www.facebook.com/niftelcommunications/"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/NiftelComPvtLtd/with_replies"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.youtube.com/@niftelcommunications"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.instagram.com/niftelcommunications/?hl=en"><i class="bi bi-instagram"></i></a>
+            </div>
+
+        </div>
+
+
+        <div class="card slide-right contact-form">
+            <h3 style="color: var(--orange);">Send Us a Message</h3>
+
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email Address">
+            <input type="text" placeholder="Subject">
+            <textarea rows="5" placeholder="Write your message..."></textarea>
+            <button>Send Message</button>
+        </div>
+
+    </div>
+
+    <!-- Map in Separate Card -->
+    <div class="card slide-up" style="margin-top: 25px;">
+        <h3 style="color: var(--orange); margin-bottom: 15px;">Our Location</h3>
+        <!-- Leaflet map (OpenStreetMap tiles) - interactive, no API key required -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin="" />
+        <div id="map-contact" style="width:100%;height:300px;border-radius:12px;overflow:hidden;"></div>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin=""></script>
+        <script>
+          (function(){
+            try {
+              const lat = 26.8615961, lon = 80.9807396;
+              const map = L.map('map-contact', { zoomControl: true }).setView([lat, lon], 13);
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+              }).addTo(map);
+              L.marker([lat, lon]).addTo(map).bindPopup('Niftel — Lucknow').openPopup();
+            } catch (err) {
+              console.warn('Leaflet init failed', err);
+            }
+          })();
+        </script>
+
+    </div>
+
+</div>
+</section>
+<script>
+    const elements = document.querySelectorAll('.slide-left, .slide-right, .slide-up');
+    const reveal = () => {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                el.classList.add('show');
+            }
+        });
+    };
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
+
+
+  <!-- Footer (inlined from base/footer.html for consistent rendering) -->
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="footer-content">
+           <a href="/index.html" class="logo d-flex align-items-center me-auto me-xs-0"><img src="/assets/img/logo1.png" alt="niftel.com Logo"></a>
+
+            <div class="newsletter-form">
+              <h5>Stay Updated</h5>
+              <form action="forms/newsletter.php" method="post" class="php-email-form">
+                <div class="input-group">
+                  <input type="email" name="email" class="form-control" placeholder="Enter your email" required="">
+                  <button type="submit" class="btn-subscribe">
+                    <i class="bi bi-send"></i>
+                  </button>
+
+                </div>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Thank you for subscribing!</div>
+              </form>
+            </div>
+          </div>
+            <div class="footer-iso">
+              <img src="/assets/img/iso.png" alt="ISO Certification Logo" class="iso-logo">
+              <span>ISO/IEC 27001:2022 & ISO 9001:2015 Certified</span>
+            </div>
+
+          </div>
+
+        <div class="col-lg-2 col-6">
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/content/frontend/index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Privacy Policy</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i>Cookies Policy</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Terms & Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <div class="footer-links">
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="https://www.niftelresources.com/about-us/"><i class="bi bi-chevron-right"></i> About Us</a></li>
+              <li><a href="/content/frontend/gallery.html"><i class="bi bi-chevron-right"></i> Gallery</a></li>
+              <li><a href="/content/frontend/contactUs.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="footer-contact">
+            <h4 class="no-wrap">Get&nbsp;in&nbsp;Touch</h4>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="contact-info">
+                
+                <p>A Block, 3rd Floor, <br>Sooraj Deep Complex, Jopling Road, <br>Lucknow (UP) - 226001, India</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="contact-info">
+              <p><a href="tel:+91-9236 454 872">+91-9236 454 872</a></p>
+            </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <p><a href="mailto:hr@niftel.com">hr@niftel.com</a></p>
+
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/niftelcommunications/"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/NiftelComPvtLtd/with_replies"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.youtube.com/@niftelcommunications"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.instagram.com/niftelcommunications/?hl=en"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="copyright">
+              <p>© <span>2025</span> <strong class="px-1 sitename">Niftel Communications</strong> <span>Pvt. Ltd.</span></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+            </div>
+            <div class="credits">
+              Designed by <a href="https://niftel.com/">niftel.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Import include.js -->
+  <script src="./assets/js/include.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+  <!-- Load Header & Footer -->
+<script>
+    window.addEventListener("scroll", function () {
+    const body = document.body;
+
+    if (window.scrollY > 50) {
+      body.classList.add("scrolled");
+    } else {
+      body.classList.remove("scrolled");
+    }
+  });
+    loadComponent('header', '/base/header.html');
+    // Footer inlined above; footer include removed for this page to ensure consistent rendering.
+    // loadComponent('footer', '/base/footer.html');
+  </script>
+</body>
+</html>

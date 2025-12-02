@@ -1,0 +1,358 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Niftel | Performance Speaks</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="robots" content="index, follow">
+
+  <link href="assets/img/N.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../vendors/aos/aos.css" rel="stylesheet">
+  <link href="../vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <link href="./assets/css/main.css" rel="stylesheet">
+
+  
+<!-- Gallery CSS -->
+<style>
+.gallery-menu {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.gallery-menu button {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 10px 25px;
+    border: 2px solid #091E3E;
+    background: transparent;
+    color: #091E3E;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.gallery-menu button:hover,
+.gallery-menu button.active {
+    background: #F37021;
+    border-color: #F37021;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9,30,62,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+.overlay-icon {
+    width: 50px;
+    height: 50px;
+    background: #F37021;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+</style>
+  
+</head>
+
+<body class="career-page">
+
+<!--Header Loads Here -->
+  <div id="header"></div>
+    <main class="main">
+    <section id="hero" class="hero section dark-background">
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8 text-center">
+              <h2>Life at <span style="color: var(--primary);">Niftel</span></h2>
+              <p>Discover the moments that make Niftel more than just a workplace. From team celebrations to daily collaborations, our gallery showcases the energy, creativity, and spirit of our community.
+</p>
+       
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-item active">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/img/slider/carousal1.jpg">
+      <source src="/content/frontend/assets/img/gallery.mp4" type="video/mp4">
+
+    </video>
+  </div>
+</div>
+ </section>
+
+<!-- Gallery Section -->
+<div class="container py-5" style="background-color: #f0f8ff;">
+    <div class="container py-5">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our <span style="color: #F37021;">Gallery</span></h2>
+            <p class="text-muted mb-4">A glimpse into our culture and daily life.</p>
+
+            <!-- Filters -->
+            <div class="gallery-menu">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="office">Office Environment</button>
+                <button data-filter="team">Team & Events</button>
+                <button data-filter="celebrations">Celebrations</button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="row g-4 portfolio-container">
+            <!-- Example Gallery Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item office animate__animated animate__fadeInUp">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="/content/frontend/assets/img/gallery/img1.jpg" alt="Office Life">
+                    <div class="gallery-overlay">
+                        <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item team animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="/content/frontend/assets/img/gallery/img2.jpg" alt="Team Event">
+                    <div class="gallery-overlay">
+                        <!-- <div class="overlay-icon"><i class="fa fa-plus"></i></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item celebrations animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="/content/frontend/assets/img/gallery/img3.jpg" alt="Celebration">
+                    <div class="gallery-overlay">
+                        <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item celebrations animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="/content/frontend/assets/img/gallery/img4.jpg" alt="Celebration">
+                    <div class="gallery-overlay">
+                        <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                    </div>
+                </div>
+            </div>
+              <div class="col-lg-4 col-md-6 portfolio-item office animate__animated animate__fadeInUp animate__delay-1s">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img5.jpg" alt="Office Life">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item team animate__animated animate__fadeInUp animate__delay-2s">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img6.jpg" alt="Team Event">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item office animate__animated animate__fadeInUp">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img7.jpg" alt="Office Life">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item team animate__animated animate__fadeInUp animate__delay-1s">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img8.jpg" alt="Team Event">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item celebrations animate__animated animate__fadeInUp animate__delay-2s">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img9.jpg" alt="Celebration">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item office animate__animated animate__fadeInUp">
+                  <div class="gallery-item" onclick="openLightbox(this)">
+                      <img src="/content/frontend/assets/img/gallery/img10.jpg" alt="Office Life">
+                      <div class="gallery-overlay">
+                          <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 portfolio-item team animate__animated
+
+  animate__fadeInUp animate__delay-1s">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="/content/frontend/assets/img/gallery/img11.jpg" alt="Team Event">
+                        <div class="gallery-overlay">
+                            <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item celebrations animate__animated
+  animate__fadeInUp animate__delay-2s">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="/content/frontend/assets/img/gallery/img12.jpg" alt="Celebration">
+                        <div class="gallery-overlay">
+                            <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item office animate__animated animate__fadeInUp">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="/content/frontend/assets/img/gallery/img13.jpg" alt="Office Life">
+                        <div class="gallery-overlay">
+                            <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item team animate__animated
+  animate__fadeInUp animate__delay-1s">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="/content/frontend/assets/img/gallery/img14.jpg" alt="Team Event">
+                        <div class="gallery-overlay">
+                            <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item celebrations animate__animated
+  animate__fadeInUp animate__delay-2s">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="/content/frontend/assets/img/gallery/img15.jpg" alt="Celebration">
+                        <div class="gallery-overlay">
+                            <!-- <div class="overlay-icon"><i class="bi bi-plus"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+               
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-0">
+                <img id="lightboxImage" src="" alt="Full View" style="border-radius:10px; max-height:85vh; width:100%; object-fit:contain;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- Footer Loads Here -->
+  <div id="footer"></div>
+
+  <!-- Import include.js -->
+  <script src="./assets/js/include.js"></script>
+  <script src="./assets/js/main.js"></script>
+
+  
+<!-- Gallery JS -->
+<script>
+
+  // Updated JS
+function openLightbox(element){
+    // Find the img in the same gallery-item parent
+    var imgSrc = $(element).closest('.gallery-item').find('img').attr('src');
+    $('#lightboxImage').attr('src', imgSrc);
+    var myModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+    myModal.show();
+}
+
+$(document).ready(function(){
+    $('.gallery-menu button').click(function(){
+        $('.gallery-menu button').removeClass('active');
+        $(this).addClass('active');
+
+        var filter = $(this).attr('data-filter');
+        if(filter == 'all'){
+            $('.portfolio-item').fadeIn(500);
+        } else {
+            $('.portfolio-item').hide();
+            $('.' + filter).fadeIn(500);
+        }
+    });
+});
+
+function openLightbox(element){
+    var imgSrc = $(element).find('img').attr('src');
+    $('#lightboxImage').attr('src', imgSrc);
+    var myModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+    myModal.show();
+}
+</script>
+
+  <!-- Load Header & Footer -->
+<script>
+    window.addEventListener("scroll", function () {
+    const body = document.body;
+
+    if (window.scrollY > 50) {
+      body.classList.add("scrolled");
+    } else {
+      body.classList.remove("scrolled");
+    }
+  });
+    loadComponent('header', '/base/header.html');
+    loadComponent('footer', '/base/footer.html');
+  </script>
+</body>
+</html> 
