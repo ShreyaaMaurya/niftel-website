@@ -29,7 +29,7 @@
   <link href="../vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../vendors/aos/aos.css" rel="stylesheet">
   <link href="../vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <!-- <link href="../vendors/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
 
   <link href="assets/css/main.css" rel="stylesheet">
   <style>
@@ -1065,24 +1065,17 @@
   <script>
     new PureCounter();
   </script>
-  <script>
-    // Function to load HTML components
-    function loadComponent(id, url) {
-      fetch(url)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.text();
-        })
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-        })
-        .catch(error => {
-          console.error('Error loading component:', error);
-        });
-    }
-  </script>
+<script>
+  function loadComponent(id, url) {
+    return fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        return true; // VERY IMPORTANT
+      });
+  }
+</script>
+
 
 <!-- Cloudflare Web Analytics -->
 <script>
@@ -1142,6 +1135,36 @@
   });
 
 </script>
+<script>
+  // LOAD HEADER FIRST → THEN INIT MOBILE MENU
+  loadComponent('header', '/base/header.html').then(() => {
+    initMobileMenu();
+  });
+
+  // LOAD FOOTER
+  loadComponent('footer', '/base/footer.html');
+
+  // FUNCTION TO HANDLE MOBILE MENU TOGGLE
+  function initMobileMenu() {
+    const btn = document.querySelector('.mobile-nav-toggle');
+    if (!btn) {
+      console.warn("Mobile nav button not found");
+      return;
+    }
+
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("mobile-nav-active");
+      btn.classList.toggle("bi-list");
+      btn.classList.toggle("bi-x");
+    });
+  }
+
+  // HEADER SCROLL EFFECT
+  window.addEventListener("scroll", function () {
+    document.body.classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+
 
 </body>
 

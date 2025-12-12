@@ -178,6 +178,36 @@ Lead conversion is a product of various processes in the metaphorical lead funne
     once: true
   });
 </script>
+<script>
+  // LOAD HEADER FIRST → THEN INIT MOBILE MENU
+  loadComponent('header', '/base/header.html').then(() => {
+    initMobileMenu();
+  });
+
+  // LOAD FOOTER
+  loadComponent('footer', '/base/footer.html');
+
+  // FUNCTION TO HANDLE MOBILE MENU TOGGLE
+  function initMobileMenu() {
+    const btn = document.querySelector('.mobile-nav-toggle');
+    if (!btn) {
+      console.warn("Mobile nav button not found");
+      return;
+    }
+
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("mobile-nav-active");
+      btn.classList.toggle("bi-list");
+      btn.classList.toggle("bi-x");
+    });
+  }
+
+  // HEADER SCROLL EFFECT
+  window.addEventListener("scroll", function () {
+    document.body.classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+
 
 </body>
 </html>
