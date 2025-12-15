@@ -31,10 +31,15 @@
     #call-services {
       scroll-margin-top: 120px;
     }
+
   </style>
 <body>
-  
   <header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container position-relative d-flex align-items-center justify-content-between">
+
+    <a href="/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <img src="/assets/img/logo1.png" alt="">
+    </a>
  <nav id="navmenu" class="navmenu mx-auto">
   <ul>
     <li><a href="/index.html" class="active">Home</a></li>
@@ -93,7 +98,7 @@
   </ul>
 </nav>
 <button class="mobile-nav-toggle d-xl-none" type="button"><i class="bi bi-list"></i></button>
-
+</div>
 </header>   
   <main class="main">
     <section id="hero" class="hero section dark-background">
@@ -419,14 +424,172 @@
 <script>
   AOS.init({ duration: 800, once: true });
 
-  // Mobile nav toggle
+  // Mobile nav toggl
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
   const btn = document.querySelector(".mobile-nav-toggle");
+  const nav = document.querySelector("#navmenu");
+  const body = document.body;
+
+  if (!btn || !nav) return; // safety check
+
+  // Mobile menu toggle
   btn.addEventListener("click", () => {
-    document.body.classList.toggle("mobile-nav-active");
+    body.classList.toggle("mobile-nav-active");
     btn.querySelector("i").classList.toggle("bi-list");
     btn.querySelector("i").classList.toggle("bi-x");
   });
+
+  // Dropdown toggle for mobile
+  const dropdowns = nav.querySelectorAll(".dropdown > a");
+
+  dropdowns.forEach(drop => {
+    drop.addEventListener("click", (e) => {
+      if (window.innerWidth < 1200) { // mobile only
+        e.preventDefault();
+        const parent = drop.parentElement;
+        parent.classList.toggle("dropdown-active");
+
+        // slide down/up submenu
+        const submenu = drop.nextElementSibling;
+        if (submenu) {
+          if (submenu.style.display === "block") {
+            submenu.style.display = "none";
+          } else {
+            submenu.style.display = "block";
+          }
+        }
+      }
+    });
+  });
+
+  // Close menu if clicked outside (optional)
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !btn.contains(e.target) && body.classList.contains("mobile-nav-active")) {
+      body.classList.remove("mobile-nav-active");
+      btn.querySelector("i").classList.add("bi-list");
+      btn.querySelector("i").classList.remove("bi-x");
+      nav.querySelectorAll(".dropdown-active").forEach(d => d.classList.remove("dropdown-active"));
+      nav.querySelectorAll("ul").forEach(u => u.style.display = "none");
+    }
+  });
+});
 </script>
+
+<script>
+function loadComponent(id, url) {
+  return fetch(url)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch(err => console.error(err));
+}
+
+/* ✅ MOBILE NAV INITIALIZER */
+function initMobileNav() {
+  const body = document.body;
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const nav = document.querySelector('#navmenu');
+
+  if (!toggle || !nav) return;
+
+  /* =====================
+     HAMBURGER TOGGLE
+  ====================== */
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('mobile-nav-active');
+
+    const icon = toggle.querySelector('i');
+    icon.classList.toggle('bi-list');
+    icon.classList.toggle('bi-x');
+  });
+
+  /* =====================
+     DROPDOWNS (ALL LEVELS)
+  ====================== */
+  nav.querySelectorAll('.js-mobile-toggle').forEach(link => {
+
+    link.addEventListener('click', function (e) {
+      if (window.innerWidth > 991) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const dropdown = this.closest('.dropdown');
+      const parentUl = dropdown.parentElement;
+
+      /* Close sibling dropdowns */
+      parentUl.querySelectorAll(':scope > .dropdown.dropdown-active')
+        .forEach(item => {
+          if (item !== dropdown) {
+            item.classList.remove('dropdown-active');
+          }
+        });
+
+      /* Toggle current dropdown */
+      dropdown.classList.toggle('dropdown-active');
+    });
+
+  });
+}
+
+/* =====================
+   WAIT FOR HEADER LOAD
+====================== */
+document.addEventListener('DOMContentLoaded', () => {
+
+  const observer = new MutationObserver(() => {
+    if (document.querySelector('.mobile-nav-toggle')) {
+      initMobileNav();
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+});
+
+document.addEventListener("click", function (e) {
+
+  /* =====================
+     MOBILE MENU TOGGLE
+  ====================== */
+  const toggle = e.target.closest(".mobile-nav-toggle");
+  if (toggle) {
+    document.body.classList.toggle("mobile-nav-active");
+
+    const icon = toggle.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("bi-list");
+      icon.classList.toggle("bi-x");
+    }
+    return;
+  }
+
+  /* =====================
+     MOBILE DROPDOWNS
+  ====================== */
+  const dropdownToggle = e.target.closest(".js-mobile-toggle");
+  if (dropdownToggle && window.innerWidth <= 991) {
+
+    e.preventDefault();
+
+    const dropdown = dropdownToggle.closest(".dropdown");
+    if (!dropdown) return;
+
+    dropdown.classList.toggle("dropdown-active");
+  }
+
+});
+
+</script>
+
+
 </body>
 </html>
 

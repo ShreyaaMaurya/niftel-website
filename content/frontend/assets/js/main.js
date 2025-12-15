@@ -36,13 +36,15 @@
     }
 
     // Hide mobile nav on same-page/hash links
-    document.querySelectorAll('#navmenu a').forEach(navmenu => {
-      navmenu.addEventListener('click', () => {
-        if (document.querySelector('.mobile-nav-active')) {
-          mobileNavToggle();
-        }
-      });
-    });
+
+
+    // document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    //   navmenu.addEventListener('click', () => {
+    //     if (document.querySelector('.mobile-nav-active')) {
+    //       mobileNavToggle();
+    //     }
+    //   });
+    // });
 
     // Toggle mobile nav dropdowns
     
@@ -139,6 +141,34 @@
       preloader.remove();
     });
   }
+
+  // Toggle mobile nav dropdowns (ALL LEVELS)
+document.querySelectorAll('#navmenu .toggle-dropdown').forEach(icon => {
+
+  icon.addEventListener('click', function (e) {
+    if (window.innerWidth > 1199) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    const dropdown = this.closest('.dropdown');
+    if (!dropdown) return;
+
+    const parentUl = dropdown.parentElement;
+
+    // Close sibling dropdowns
+    parentUl.querySelectorAll(':scope > .dropdown').forEach(item => {
+      if (item !== dropdown) {
+        item.classList.remove('dropdown-active');
+      }
+    });
+
+    // Toggle current dropdown
+    dropdown.classList.toggle('dropdown-active');
+  }, true); // capture phase
+});
+
 
   /**
    * Scroll top button
