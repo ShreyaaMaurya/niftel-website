@@ -122,6 +122,112 @@
       color: #555;
     }
 
+    /* ------------------- TEAM CARDS BIG RECTANGULAR IMAGES ------------------- */
+.team-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 2px solid transparent;
+  max-width: 280px; /* slightly bigger card */
+  margin: 0 auto; /* center card */
+}
+
+.team-card img {
+  width: 100% !important;     /* full card width */
+  height: 250px !important;   /* bigger height */
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 auto !important;  /* center image */
+  border-radius: 10px !important; /* REMOVE circular rounding */
+}
+
+
+/* Hover effect */
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: #ff7a00;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.team-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Team info text */
+.team-info {
+  text-align: center;
+  padding: 15px;
+}
+
+.team-info h3 {
+  color: #ff7a00;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.team-info p {
+  font-size: 14px;
+  margin: 0;
+  color: #555;
+}
+
+/* Orange line */
+.orange-line {
+  width: 0;
+  height: 3px;
+  background: #ff7a00;
+  margin: 10px auto 0;
+  transition: width 0.35s;
+}
+
+.team-card:hover .orange-line {
+  width: 60%;
+}
+
+/* ------------------- RESPONSIVE GRID ------------------- */
+@media (max-width: 991px) {
+  .col-lg-3, .col-md-6 {
+    flex: 0 0 48%; /* two cards per row */
+    max-width: 48%;
+    margin-bottom: 20px;
+  }
+
+  .team-card {
+    max-width: 240px;
+  }
+
+  .team-card img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 575px) {
+  .col-lg-3, .col-md-6 {
+    flex: 0 0 100%; /* stack cards on mobile */
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .team-card {
+    max-width: 280px; /* center narrower cards */
+  }
+
+  .team-card img {
+    height: 200px;
+  }
+
+  .team-info h3 {
+    font-size: 16px;
+  }
+
+  .team-info p {
+    font-size: 12px;
+  }
+}
+
+
   </style>
 </head>
 <body class="index-page">
