@@ -45,16 +45,45 @@
     });
 
     // Toggle mobile nav dropdowns
-    document.querySelectorAll('#navmenu .toggle-dropdown').forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        const li = this.closest('li');
-        if (!li) return;
-        li.classList.toggle('active');
-        const submenu = li.querySelector('ul');
-        if (submenu) submenu.classList.toggle('dropdown-active');
-        e.stopImmediatePropagation();
-      });
+    
+    document.querySelectorAll('#navmenu .dropdown > a').forEach(link => {
+        const toggleIcon = link.querySelector('.toggle-dropdown');
+        
+        if (toggleIcon) {
+            
+            // 1. Attach the click handler to the ARROW ICON ONLY
+            toggleIcon.addEventListener('click', function(e) {
+                // This is the strongest way to cancel navigation and stop the event immediately.
+                e.preventDefault(); 
+                e.stopPropagation(); 
+                e.stopImmediatePropagation(); // Ensures no other click handlers fire later
+
+                let parentLi = this.closest('li');
+                
+                // Close other sub-menus at the same level for a clean view
+                parentLi.closest('ul').querySelectorAll('.dropdown').forEach(item => {
+                    if (item !== parentLi) {
+                        item.classList.remove('dropdown-active');
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle the current dropdown's classes (This reveals the <ul>)
+                parentLi.classList.toggle('dropdown-active');
+                parentLi.classList.toggle('active');
+            }, true); // Setting 'true' ensures this fires first (Capture phase)
+            
+            
+            // 2. Attach a fallback listener to the LINK ITSELF to prevent navigation if the user clicks near the icon
+            link.addEventListener('click', function(e) {
+                // Check if the click occurred on the arrow icon or the arrow icon's container
+                if (link.contains(e.target) && link.querySelector('.toggle-dropdown')) {
+                     // If the link has the dropdown arrow, it's a menu header. We must prevent navigation.
+                     e.preventDefault();
+                }
+            });
+            
+        }
     });
   }
 

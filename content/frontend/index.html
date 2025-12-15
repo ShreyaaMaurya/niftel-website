@@ -14,13 +14,9 @@
   img-src 'self' data: https:;
   connect-src 'self' https://static.cloudflareinsights.com https://cdn.jsdelivr.net;
 ">
-
-
   <meta name="robots" content="noindex, nofollow">
-
   <link href="assets/img/N.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -352,7 +348,106 @@
     padding: 0 !important;
   }
 }
+/*
+ * Team Card Base Styles (for Desktop/Tablet)
+ */
+.team-card {
+  background: #ffffff;
+  border-radius: 16px;
+  /* Centering the content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  /* Enforce approximate square look on desktop/large tablet by balancing padding */
+  padding: 30px 20px 20px !important; /* Top padding (30px) slightly larger than bottom (20px) */
+  height: 100%;
+}
 
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Founder Image Styles: MADE PICTURE LOOK BIGGER */
+.team-card img {
+  /* Increased size for desktop/tablet */
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: 0.4s ease;
+  margin-bottom: 15px; 
+}
+
+/* Founder Info Text */
+.team-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.team-info p {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* Orange Separator Line */
+.orange-line {
+  width: 40px;
+  height: 3px;
+  background-color: var(--orange, rgb(255, 111, 0));
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+
+/*
+ * Mobile Responsiveness (For smaller images and non-bulky look)
+ */
+@media (max-width: 768px) {
+  .team-card {
+    /* Reduce padding for mobile */
+    padding: 18px 15px 12px !important;
+    margin-bottom: 18px;
+    border-radius: 14px;
+  }
+
+  /* Image size adjustment for mobile (reduced but still proportionally bigger than before) */
+  .team-card img {
+    width: 110px !important;
+    height: 110px !important;
+    margin-bottom: 10px;
+  }
+
+  /* Text adjustments for mobile */
+  .team-info h3 {
+    font-size: 17px;
+  }
+
+  .team-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens - make image slightly smaller */
+  .team-card img {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .team-info h3 {
+    font-size: 16px;
+  }
+}
 </style>
 </head>
 <body class="index-page">

@@ -1,3 +1,14 @@
+<style>
+  /* MOBILE DROPDOWN VISIBILITY */
+@media (max-width: 991px) {
+  .navmenu ul ul {
+    display: none;
+  }
+  .navmenu .dropdown.dropdown-active > ul {
+    display: block;
+  }
+}
+</style>
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container position-relative d-flex align-items-center justify-content-between">
 
@@ -10,7 +21,11 @@
         <li><a href="/index.html" class="active">Home</a></li>
 
         <li class="dropdown">
-          <a href="/services page/services.html"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <a href="/services page/services.html" class="dropdown-link">
+  <span>Services</span>
+  <i class="bi bi-chevron-down toggle-dropdown"></i>
+</a>
+
           <ul>
             <li class="dropdown">
               <a href="/services page/services.html#bpo-services"><span>BPO Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -54,4 +69,38 @@
     <button class="mobile-nav-toggle d-xl-none" type="button"><i class="bi bi-list"></i></button>
 
   </div>
-</header>
+</header><script>
+function initMobileNav() {
+  const body = document.body;
+  const mobileToggleBtn = document.querySelector('.mobile-nav-toggle');
+  const navMenu = document.querySelector('#navmenu');
+
+  if (!mobileToggleBtn || !navMenu) return;
+
+  /* MAIN MENU TOGGLE */
+  mobileToggleBtn.addEventListener('click', () => {
+    body.classList.toggle('mobile-nav-active');
+    const icon = mobileToggleBtn.querySelector('i');
+    icon.classList.toggle('bi-list');
+    icon.classList.toggle('bi-x');
+  });
+
+  /* DROPDOWNS (MOBILE ONLY) */
+  navMenu.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+
+      // 👉 MOBILE CHECK
+      if (window.innerWidth <= 991) {
+        const parent = this.parentElement;
+
+        // has submenu?
+        if (parent.querySelector('ul')) {
+          e.preventDefault();   // ❌ stop redirect
+          parent.classList.toggle('dropdown-active');
+        }
+      }
+
+    });
+  });
+}
+</script>
