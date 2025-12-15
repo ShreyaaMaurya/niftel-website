@@ -24,9 +24,77 @@
 <link href="/assets/css/style.css" rel="stylesheet">
   <link href="/assets/css/main.css" rel="stylesheet">
 </head>
+ <!-- Scroll offset for fixed header -->
+  <style>
+    #bpo-services,
+    #data-services,
+    #call-services {
+      scroll-margin-top: 120px;
+    }
+  </style>
 <body>
-     <!-- Header Loads Here -->
-  <div id="header"></div>      
+  
+  <header id="header" class="header d-flex align-items-center fixed-top">
+ <nav id="navmenu" class="navmenu mx-auto">
+  <ul>
+    <li><a href="/index.html" class="active">Home</a></li>
+
+    <!-- Services Dropdown -->
+    <li class="dropdown">
+       <a href="#">Services <i class="bi bi-chevron-down"></i></a>
+        <ul>
+                <li class="dropdown">
+        <!-- BPO Services -->
+        <a href="#bpo-services">BPO Services
+<i class="bi bi-chevron-down"></i></a>
+
+<ul>
+            <li><a href="/services page/BPO services/backoffice.html">Back Office</a></li>
+            <li><a href="/services page/BPO services/frontoffice.html">Front Office</a></li>
+            <li><a href="/services page/BPO services/invoicemanagement.html">Invoice Management</a></li>
+            <li><a href="/services page/BPO services/finance&accounting.html">Finance & Accounting</a></li>
+            <li><a href="/services page/BPO services/ecommerce.html">E-commerce Support</a></li>
+          </ul>
+        </li>
+
+        <!-- Data Services -->
+        <li class="dropdown">
+<a href="#data-services">Data Services
+<i class="bi bi-chevron-down"></i>
+</a>
+          <ul>
+            <li><a href="/services page/Data services/leadConversion.html">Lead Conversion</a></li>
+            <li><a href="/services page/Data services/dataValidation.html">Data Validation</a></li>
+            <li><a href="/services page/Data services/dataMigration.html">Data Migration</a></li>
+          </ul>
+        </li>
+
+        <!-- Call Center Services -->
+        <li class="dropdown">
+
+
+<a href="#call-services">Call Center Services
+<i class="bi bi-chevron-down"></i>
+</a>
+    <ul>
+            <li><a href="/services page/Tech Support/inbound-call.html">Inbound Call Support</a></li>
+            <li><a href="/services page/Tech Support/outbound.html">Outbound Call Support</a></li>
+            <li><a href="/services page/Tech Support/answering-services.html">Answering Services</a></li>
+            <li><a href="/services page/Tech Support/tech-support.html">Tech Support</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><a href="/teams.html">Our Team</a></li>
+    <li><a href="https://www.niftelresources.com/">Resources</a></li>
+    <li><a href="https://www.niftelresources.com/apply-for-job">Careers</a></li>
+    <li><a href="/content/frontend/contactUs.html">Contact Us</a></li>
+  </ul>
+</nav>
+<button class="mobile-nav-toggle d-xl-none" type="button"><i class="bi bi-list"></i></button>
+
+</header>   
   <main class="main">
     <section id="hero" class="hero section dark-background">
       <div class="info d-flex align-items-center">
@@ -211,65 +279,157 @@
   </div>
 </section>
 
+<footer id="footer" class="footer dark-background">
 
-<div id="footer"></div>
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="footer-content">
+           <a href="/index.html" class="logo d-flex align-items-center me-auto me-xs-0"><img src="/assets/img/logo1.png" alt="niftel.com Logo"></a>
+
+            <!-- <p class="mb-4">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec velit neque auctor sit amet aliquam vel ullamcorper sit amet ligula.</p> -->
+
+            <div class="newsletter-form">
+              <h5>Stay Updated</h5>
+              <form action="forms/newsletter.php" method="post" class="php-email-form">
+                <div class="input-group">
+                  <input type="email" name="email" class="form-control" placeholder="Enter your email" required="">
+                  <button type="submit" class="btn-subscribe">
+                    <i class="bi bi-send"></i>
+                  </button>
+
+                </div>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Thank you for subscribing!</div>
+              </form>
+            </div>
+          </div>
+            <div class="footer-iso">
+              <img src="/assets/img/iso.png" alt="ISO Certification Logo" class="iso-logo">
+              <span>ISO/IEC 27001:2022 & ISO 9001:2015 Certified</span>
+            </div>
+
+          </div>
+
+        <div class="col-lg-2 col-6">
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/content/frontend/index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Privacy Policy</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i>Cookies Policy</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Terms & Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <div class="footer-links">
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="https://www.niftelresources.com/about-us/"><i class="bi bi-chevron-right"></i> About Us</a></li>
+              <li><a href="/content/frontend/gallery.html"><i class="bi bi-chevron-right"></i> Gallery</a></li>
+              <li><a href="/content/frontend/contactUs.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+              <!-- <li><a href="#"><i class="bi bi-chevron-right"></i> E commerece Support</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Tech Support</a></li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="footer-contact">
+            <h4 class="no-wrap">Get in Touch</h4>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="contact-info">
+                  
+                <p>A Block, 3rd Floor, <br>Sooraj Deep Complex, Jopling Road, <br>Lucknow (UP) - 226001, India</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="contact-info">
+              <p><a href="tel:+91-9236 454 872">+91-9236 454 872</a></p>
+            </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <p><a href="mailto:hr@niftel.com">hr@niftel.com</a></p>
+
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/niftelcommunications/"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/NiftelComPvtLtd/with_replies"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.youtube.com/@niftelcommunications"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.instagram.com/niftelcommunications/?hl=en"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="copyright">
+              <p>© <span>2025</span> <strong class="px-1 sitename">Niftel Communications</strong> <span>Pvt. Ltd.</span></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+            </div>
+            <div class="credits">
+              Designed by <a href="https://niftel.com/">niftel.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Import include.js -->
   <script src="/assets/js/include.js"></script>
   <script src="/assets/js/main.js"></script>
 
 
-  <!-- Load Header & Footer -->
-  <script>
-        window.addEventListener("scroll", function () {
-    const body = document.body;
-
-    if (window.scrollY > 50) {
-      body.classList.add("scrolled");
-    } else {
-      body.classList.remove("scrolled");
-    }
-  });
-    loadComponent("header", "/base/header.html");
-    loadComponent("footer", "/base/footer.html");
-  </script>
+<!-- ================= JS ================= -->
 <script src="/vendors/aos/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 800,
-    once: true
+  AOS.init({ duration: 800, once: true });
+
+  // Mobile nav toggle
+  const btn = document.querySelector(".mobile-nav-toggle");
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("mobile-nav-active");
+    btn.querySelector("i").classList.toggle("bi-list");
+    btn.querySelector("i").classList.toggle("bi-x");
   });
 </script>
-<script>
-  // LOAD HEADER FIRST → THEN INIT MOBILE MENU
-  loadComponent('header', '/base/header.html').then(() => {
-    initMobileMenu();
-  });
-
-  // LOAD FOOTER
-  loadComponent('footer', '/base/footer.html');
-
-  // FUNCTION TO HANDLE MOBILE MENU TOGGLE
-  function initMobileMenu() {
-    const btn = document.querySelector('.mobile-nav-toggle');
-    if (!btn) {
-      console.warn("Mobile nav button not found");
-      return;
-    }
-
-    btn.addEventListener("click", () => {
-      document.body.classList.toggle("mobile-nav-active");
-      btn.classList.toggle("bi-list");
-      btn.classList.toggle("bi-x");
-    });
-  }
-
-  // HEADER SCROLL EFFECT
-  window.addEventListener("scroll", function () {
-    document.body.classList.toggle("scrolled", window.scrollY > 50);
-  });
-</script>
-
-
 </body>
 </html>
+
+
+
+

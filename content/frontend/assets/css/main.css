@@ -845,160 +845,113 @@ body.scrolled .header {
     transition: 0.3s ease-in-out;
   }
 
-  .navmenu .dropdown .dropdown-active {
+ .navmenu .dropdown.dropdown-active > ul
+  {
     display: block;
   }
 
-}
 
+}
 /* --------------------------------------------------------------
-# MOBILE NAVIGATION MENU (Slide-in Animation)
+# MOBILE NAVIGATION MENU (Side Panel Slide-in)
 --------------------------------------------------------------*/
 @media (max-width: 1199px) {
 
-  /* --- Global Fixes --- */
+  /* --- Global Fixes (Prevent background scroll) --- */
   html, body {
-    overflow-x: hidden !important; /* Hides horizontal scrollbar/gap */
+    overflow-x: hidden !important;
   }
-
-  /* Make sure the header content doesn't fight the toggle button */
-  #header .container {
-    padding-right: 20px; 
-    padding-left: 20px;
-  }
-  
   .mobile-nav-active {
     overflow: hidden; /* Prevents background scroll when menu is open */
   }
 
-  /* --- Toggle Button --- */
-  /* --- Toggle Button --- */
-.mobile-nav-toggle {
-    /* FIXED: Use absolute position to ignore the flow of the logo and align to the container's edge */
-    position: absolute;
-    
-    /* Align to the far right edge of the header container */
-    right: 20px; 
-    
-    /* Center vertically */
-    top: 50%; 
+  /* --- Toggle Button Position --- */
+  .mobile-nav-toggle {
+    position: absolute; /* Aligns relative to the container */
+    right: 20px;
+    top: 50%;
     transform: translateY(-50%);
-    
-    /* Ensure it remains clickable and visible */
     font-size: 30px;
     cursor: pointer;
     z-index: 10000;
-    color: var(--nav-color, #333); 
-    transition: 0.3s ease;
-}
+    color: var(--nav-color, #333);
+    /* Remove padding/margin overrides if they cause issues */
+  }
 
-/* FIX for mobile-nav-active state */
-.mobile-nav-active .mobile-nav-toggle {
-    /* When the menu is open, the button MUST be fixed to stay visible over the sliding panel */
-    position: fixed; 
-    right: 20px; /* Aligned with the padding of the header */
-    top: 22px;   /* Adjusted to align nicely with the top bar */
-    transform: none; /* Remove translateY override */
-    
-    color: var(--accent-color, #ff6f00); 
-}
+  .mobile-nav-active .mobile-nav-toggle {
+    position: fixed; /* Stays fixed when panel is open */
+    top: 22px;
+    right: 320px; /* Aligns button to the left edge of the 300px panel (20px gap) */
+    transform: none;
+    color: var(--accent-color, #ff6f00);
+  }
 
-  /* --- Navigation Menu Container (The sliding panel) --- */
+  /* --- NAVIGATION PANEL (The Sliding Box) --- */
   .navmenu {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 300px; /* Width of the side panel */
+    width: 300px; /* Fixed width side panel */
     max-width: 90vw;
     z-index: 9997;
-    background: #fff; /* White background for the panel */
+    background: #fff; /* Panel background */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    
-    /* Start position: off-screen to the right */
+    overflow-y: auto; /* Allows menu content to scroll */
+
+    /* Animation: Start hidden on the right */
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Slide-in when active */
+  .mobile-nav-active .navmenu {
+    transform: translateX(0);
   }
   
-  /* Menu List Styling */
+  /* --- Menu List Styling --- */
   .navmenu ul {
     list-style: none;
     padding: 20px 0;
     margin: 0;
+    /* IMPORTANT: Remove any conflicting 'position: fixed' or 'inset: 0' from ul */
   }
 
-  /* --- Active State (Menu slides in) --- */
-  .mobile-nav-active .navmenu {
-    transform: translateX(0); /* Slide fully into view */
-  }
-
-  /* Change Toggle Icon when menu is active */
-  .mobile-nav-active .mobile-nav-toggle i {
-    /* Use fixed position for X icon if header is fixed */
-    position: fixed; 
-    right: 20px; 
-    color: var(--accent-color, #ff6f00); 
-  }
-  
-  /* --- Links and Dropdowns --- */
   .navmenu li {
-    /* Add separator between menu items */
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid #eee;
   }
-  
+
+  /* --- Links and Dropdowns --- */
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color, #333);
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
-    font-weight: 500;
-    transition: 0.3s;
+    /* ... rest of link styles ... */
   }
   
-  .navmenu a:hover,
-  .navmenu .active > a { 
-    color: var(--accent-color, #ff6f00);
-    background-color: #f8f8f8;
+  /* Dropdown Inner UL (Submenu) */
+  .navmenu .dropdown ul {
+    display: none;
+    padding-left: 20px; /* Indent sub-items */
+    margin: 0;
+    background: #fafafa;
+    border-top: 1px solid #eee;
   }
 
-  /* Dropdown Arrow Icon Styling */
-  .navmenu a i.toggle-dropdown {
-    font-size: 14px;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-left: 10px;
-    transition: 0.3s ease;
-    background: rgba(0,0,0,0.05);
+  /* Show submenu when active */
+  .navmenu .dropdown-active > ul {
+    display: block;
   }
-
-  /* Rotate arrow when dropdown is open */
+  
+  /* Arrow Rotation/Style */
   .navmenu .dropdown-active > a i.toggle-dropdown {
     transform: rotate(180deg);
     background: var(--accent-color, #ff6f00);
     color: #fff;
-  }
-
-  /* Dropdown Inner UL */
-  .navmenu .dropdown ul {
-    display: none;
-    padding: 0;
-    margin: 0;
-    background: #fafafa;
-    border-top: 1px solid #eee;
-    padding-left: 20px; /* Indent sub-items */
-  }
-
-  /* Class added by JS to show submenu */
-  .navmenu .dropdown-active > ul {
-    display: block; 
   }
 }
 /*--------------------------------------------------------------

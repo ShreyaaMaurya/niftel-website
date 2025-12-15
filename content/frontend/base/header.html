@@ -1,14 +1,19 @@
 <style>
-  /* MOBILE DROPDOWN VISIBILITY */
-@media (max-width: 991px) {
+@media (max-width: 1199px) { /* Changed to 1199px for consistency with your media query */
+  /* Hide all nested <ul> lists by default */
   .navmenu ul ul {
-    display: none;
+    display: none !important;
   }
+  
+  /* Show only the direct child <ul> when its parent <li> has the dropdown-active class */
   .navmenu .dropdown.dropdown-active > ul {
-    display: block;
+    display: block !important;
   }
+  
+  /* Keep your logo and general layout CSS here */
+  /* If you are using the sliding panel CSS (from our last successful fix), keep that here too. */
 }
-</style>
+</style>  
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container position-relative d-flex align-items-center justify-content-between">
 
@@ -21,11 +26,7 @@
         <li><a href="/index.html" class="active">Home</a></li>
 
         <li class="dropdown">
-          <a href="/services page/services.html" class="dropdown-link">
-  <span>Services</span>
-  <i class="bi bi-chevron-down toggle-dropdown"></i>
-</a>
-
+          <a href="/services page/services.html"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown" role="button"></i></a>
           <ul>
             <li class="dropdown">
               <a href="/services page/services.html#bpo-services"><span>BPO Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -69,38 +70,66 @@
     <button class="mobile-nav-toggle d-xl-none" type="button"><i class="bi bi-list"></i></button>
 
   </div>
-</header><script>
+</header>
+<script>
+function loadComponent(id, url) {
+  return fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch(err => console.error(err));
+}
+   
 function initMobileNav() {
   const body = document.body;
-  const mobileToggleBtn = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('#navmenu');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const nav = document.querySelector('#navmenu');
 
-  if (!mobileToggleBtn || !navMenu) return;
+  if (!toggle || !nav) return;
 
-  /* MAIN MENU TOGGLE */
-  mobileToggleBtn.addEventListener('click', () => {
+  /* HAMBURGER */
+  toggle.addEventListener('click', function () {
     body.classList.toggle('mobile-nav-active');
-    const icon = mobileToggleBtn.querySelector('i');
+    const icon = this.querySelector('i');
     icon.classList.toggle('bi-list');
     icon.classList.toggle('bi-x');
   });
-
-  /* DROPDOWNS (MOBILE ONLY) */
-  navMenu.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', function (e) {
-
-      // 👉 MOBILE CHECK
-      if (window.innerWidth <= 991) {
-        const parent = this.parentElement;
-
-        // has submenu?
-        if (parent.querySelector('ul')) {
-          e.preventDefault();   // ❌ stop redirect
-          parent.classList.toggle('dropdown-active');
+/* 🔥 ALL DROPDOWNS (ANY LEVEL) - DEFINITIVE FIX (Using new HTML structure) */
+nav.querySelectorAll('.js-mobile-toggle').forEach(toggleElement => {
+  
+    toggleElement.addEventListener('click', function (e) {
+        if (window.innerWidth <= 991) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
+            const clickedDropdown = this.closest('.dropdown');
+            const parentUl = clickedDropdown.closest('ul');
+            
+            // 1. Close all active sibling dropdowns
+            parentUl.querySelectorAll('.dropdown-active').forEach(activeSibling => {
+                if (activeSibling !== clickedDropdown) {
+                    activeSibling.classList.remove('dropdown-active');
+                    // Reset arrow icon animation
+                    const siblingArrow = activeSibling.querySelector('.js-mobile-toggle i');
+                    if (siblingArrow) siblingArrow.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // 2. Toggle the current dropdown
+            clickedDropdown.classList.toggle('dropdown-active');
+            
+            // 3. Apply/Remove arrow rotation
+            const arrowIcon = this.querySelector('i');
+            if (clickedDropdown.classList.contains('dropdown-active')) {
+                arrowIcon.style.transform = 'rotate(180deg)';
+            } else {
+                arrowIcon.style.transform = 'rotate(0deg)';
+            }
         }
-      }
-
     });
-  });
+});
 }
+
 </script>
