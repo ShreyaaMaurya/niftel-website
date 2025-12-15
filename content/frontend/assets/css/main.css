@@ -881,7 +881,7 @@ body.scrolled .header {
   .mobile-nav-active .mobile-nav-toggle {
     position: fixed; /* Stays fixed when panel is open */
     top: 22px;
-    right: 320px; /* Aligns button to the left edge of the 300px panel (20px gap) */
+    /* right: 320px; Aligns button to the left edge of the 300px panel (20px gap) */
     transform: none;
     color: var(--accent-color, #ff6f00);
   }
